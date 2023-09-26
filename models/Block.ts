@@ -9,17 +9,15 @@ export class Block {
     public index: string;
     public unit: string;
     public timestamp: Date;
-    public previousBlockHash: string = "";
-    public amount: number | string;
     public sequence: number = 1;
     constructor(
-        amount: number | string,
-        previousHash: string = "",
+        public amount: number | string,
+        public previousBlockHash: string = "",
         public isGenesis: boolean = false
 
     ) {
         this.isGenesis = isGenesis;
-        this.previousBlockHash = previousHash;
+        this.previousBlockHash = previousBlockHash;
         this.amount = amount;
         this.index = uuid();
         this.timestamp = new Date();
@@ -38,13 +36,13 @@ export class Block {
     toJSON(index: number): BlockJsonDTO {
         return {
             index: this.index,
+            sequentialNumber: index,
             blockHash: this.blockHash,
             previousBlockHash: this.previousBlockHash,
-            timestamp: this.timestamp,
             unit: this.unit,
             amount: this.amount,
+            timestamp: this.timestamp,
             isGenesis: this.isGenesis,
-            sequentialNumber: index
         };
     }
 
