@@ -19,3 +19,5 @@ export const blockChainFactory: ICreateBlockchain = () => {
 
     return createdBlockchain;
 }
+
+export const chain = blockChainFactory();
