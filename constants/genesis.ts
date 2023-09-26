@@ -5,3 +5,4 @@ export const hashedGenesisAmount = SHA256(String(GENESIS_AMOUNT))
 
 export const GENESIS_SECRET_START = (SHA256("Genesis secret starter")).toString()
 export const UNIT_CURRENCY = "NGC(next Gen Coin)"
+export const PORT= 3000

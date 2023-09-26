@@ -8,7 +8,7 @@ export type BlockJsonDTO = {
     unit: string;
     amount: number | string;
     isGenesis: boolean;
-    sequentialNumber: number;
+    sequenceNumber: number;
   };
 
   export type ICreateBlockchain = () => Blockchain;
