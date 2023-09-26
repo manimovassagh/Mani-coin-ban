@@ -1,5 +1,5 @@
 import { logger } from "../config/logger";
-import { GENESIS_SECRET_START,hashedGenesisAmount } from "../constants/genesis";
+import { GENESIS_SECRET_START, hashedGenesisAmount } from "../constants/genesis";
 import { Block } from "./Block";
 
 
@@ -20,7 +20,7 @@ export class Blockchain {
         return this.chain[this.chain.length - 1];
     }
     public addBlock(newBlock: Block): void {
-        newBlock.previousHash = this.getLastBlock().blockHash;
+        newBlock.previousBlockHash = this.getLastBlock().blockHash;
         newBlock.blockHash = newBlock.calculateHash();
         this.chain.push(newBlock);
 
@@ -36,21 +36,20 @@ export class Blockchain {
                 return false;
             }
 
-            if (currentBlock.previousHash !== previousBlock.blockHash) {
+            if (currentBlock.previousBlockHash !== previousBlock.blockHash) {
                 logger.error("Blockchain is manipulated and is not acceptable");
                 return false;
             }
         }
-       logger.info("Blockchain is valid");
+        logger.info("Blockchain is valid");
         return true;
 
     }
 
-    viewDTO(){
-      return  this.chain.map((block:Block,index:number)=>{
-        block.sequence = index;
-            return block.toJSON(index)
-        
+    viewDTO() {
+        return this.chain.map((block: Block, index: number) => {
+            return block.toJSON(index + 1)
+
         })
     }
 

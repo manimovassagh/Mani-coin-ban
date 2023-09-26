@@ -1,6 +1,6 @@
 export type BlockJsonDTO = {
     blockHash: string;
-    previousHash: string;
+    previousBlockHash: string;
     index: string;
     timestamp: Date;
     unit: string;

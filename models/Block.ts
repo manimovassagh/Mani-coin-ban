@@ -9,7 +9,7 @@ export class Block {
     public index: string;
     public unit: string;
     public timestamp: Date;
-    public previousHash: string = "";
+    public previousBlockHash: string = "";
     public amount: number | string;
     public sequence: number = 1;
     constructor(
@@ -19,7 +19,7 @@ export class Block {
 
     ) {
         this.isGenesis = isGenesis;
-        this.previousHash = previousHash;
+        this.previousBlockHash = previousHash;
         this.amount = amount;
         this.index = uuid();
         this.timestamp = new Date();
@@ -29,7 +29,7 @@ export class Block {
     calculateHash(): string {
         return SHA256(
             this.index +
-            this.previousHash
+            this.previousBlockHash
             + this.timestamp
             + String(this.amount)).toString();
     }
@@ -37,14 +37,14 @@ export class Block {
 
     toJSON(index: number): BlockJsonDTO {
         return {
-            blockHash: this.blockHash,
-            previousHash: this.previousHash,
             index: this.index,
+            blockHash: this.blockHash,
+            previousBlockHash: this.previousBlockHash,
             timestamp: this.timestamp,
             unit: this.unit,
             amount: this.amount,
             isGenesis: this.isGenesis,
-            sequentialNumber: index + 1
+            sequentialNumber: index
         };
     }
 
