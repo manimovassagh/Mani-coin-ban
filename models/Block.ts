@@ -44,7 +44,7 @@ export class Block {
             unit: this.unit,
             amount: this.amount,
             isGenesis: this.isGenesis,
-            sequence: index + 1
+            sequentialNumber: index + 1
         };
     }
 

@@ -6,5 +6,5 @@ export type BlockJsonDTO = {
     unit: string;
     amount: number | string;
     isGenesis: boolean;
-    sequence: number;
+    sequentialNumber: number;
   };
