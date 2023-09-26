@@ -46,11 +46,5 @@ export class Blockchain {
 
     }
 
-    viewDTO() {
-        return this.chain.map((block: Block, index: number) => {
-            return block.toJSON(index + 1)
-
-        })
-    }
 
 }

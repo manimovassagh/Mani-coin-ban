@@ -1,8 +1,9 @@
 import { logger } from "../config/logger";
 import { Block } from "../models/Block";
 import { Blockchain } from "../models/Blockchain";
+import { ICreateBlockchain } from "../types/BlockchainDto";
 
-export type ICreateBlockchain = () => Blockchain;
+
 
 export const blockChainFactory: ICreateBlockchain = () => {
     logger.info("Blockchain is starting up");

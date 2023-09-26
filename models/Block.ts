@@ -1,7 +1,7 @@
 import { SHA256 } from "crypto-js";
 import { v4 as uuid } from 'uuid';
 import { UNIT_CURRENCY } from "../constants/genesis";
-import { BlockJsonDTO } from "../types/BlockchainDto";
+
 
 
 export class Block {
@@ -33,18 +33,7 @@ export class Block {
     }
 
 
-    toJSON(index: number): BlockJsonDTO {
-        return {
-            index: this.index,
-            sequentialNumber: index,
-            blockHash: this.blockHash,
-            previousBlockHash: this.previousBlockHash,
-            unit: this.unit,
-            amount: this.amount,
-            timestamp: this.timestamp,
-            isGenesis: this.isGenesis,
-        };
-    }
+
 
 }
 

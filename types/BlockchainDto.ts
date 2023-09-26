@@ -1,3 +1,5 @@
+import { Blockchain } from "../models/Blockchain";
+
 export type BlockJsonDTO = {
     blockHash: string;
     previousBlockHash: string;
@@ -8,3 +10,5 @@ export type BlockJsonDTO = {
     isGenesis: boolean;
     sequentialNumber: number;
   };
+
+  export type ICreateBlockchain = () => Blockchain;
