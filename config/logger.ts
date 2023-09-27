@@ -1,2 +1,4 @@
 import pretty from 'pino-pretty'
-export const logger = require('pino')(pretty())
+import pino from 'pino'
+
+export const logger = pino(pretty())
